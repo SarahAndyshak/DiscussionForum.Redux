@@ -5,14 +5,13 @@ import PostDetail from './PostDetail';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import * as a from './../actions';
 
 class PostControl extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      // formVisibleOnPage: false,
-      // mainPostList: [],
       selectedPost: null,
       editing: false
     };
@@ -21,62 +20,32 @@ class PostControl extends React.Component {
   handleClick = () => {
     if (this.state.selectedPost != null) {
       this.setState({
-        // formVisibleOnPage: false,
         selectedPost: null,
         editing: false
       });
     } else {
-      // this.setState(prevState => ({
-      //   formVisibleOnPage: !prevState.formVisibleOnPage,
-      // }));
       const { dispatch } = this.props;
-      const action = {
-        type: 'TOGGLE_FORM'
-      }
+      const action = a.toggleForm();
       dispatch(action);
+      }
     }
-  }
 
   handleDeletingPost = (id) => {
-    // const newMainPostList = this.state.mainPostList.filter(post => post.id !== id);
-    // this.setState({
-    //   mainPostList: newMainPostList,
-    //   selectedPost: null
-    // });
     const { dispatch } = this.props;
-    const action = {
-      type: 'DELETE_POST',
-      id: id
-    }
+    const action = a.deletePost(id);
     dispatch(action);
     this.setState({selectedPost: null});
   }
 
   handleAddingNewPostToList = (newPost) => {
-    // const newMainPostList = this.state.mainPostList.concat(newPost);
-    // this.setState({mainPostList: newMainPostList});
-    // this.setState({formVisibleOnPage: false});
     const { dispatch } = this.props;
-    const { id, title, userName, thoughts, postTime } = newPost;
-    const action = {
-      type: 'ADD_POST',
-      id: id, 
-      title: title, 
-      userName: userName,
-      thoughts: thoughts,
-      postTime: postTime,
-    }
+    const action = a.addPost(newPost);
     dispatch(action);
-    // this.setState({formVisibleOnPage: false});
-    const action2 = {
-      type: 'TOGGLE_FORM'
-    }
+    const action2 = a.toggleForm();
     dispatch(action2);
   }
 
   handleChangingSelectedPost = (id) => {
-    // let selectedPost = this.state.mainPostList.filter(post => post.id === id)[0];
-    // this.setState({selectedPost: selectedPost});
     const selectedPost = this.props.mainPostList[id];
     this.setState({selectedPost: selectedPost});
   }
@@ -109,7 +78,6 @@ class PostControl extends React.Component {
       </React.Fragment>
     );
   }
-
 }
 
 PostControl.propTypes = {
