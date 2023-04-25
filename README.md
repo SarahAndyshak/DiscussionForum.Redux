@@ -5,9 +5,9 @@
 #### By: Eliot Gronstal, Erin Timlin, Sarah Andyshak 4.25.23
 
 #### 💬 [Technologies Used](#technologies-used)
-#### 💬 [Component Diagram](#component-diagram)
+#### 🖖 [Component Diagram](#component-diagram)
 #### 💬 [Setup / Installation](#setup-and-installation)
-#### 💬 [Known Bugs](#known-bugs)
+#### 🤝 [Known Bugs](#known-bugs)
 #### 💬 [License](#license) 
 
 ## Technologies Used
