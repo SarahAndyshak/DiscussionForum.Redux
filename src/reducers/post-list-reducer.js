@@ -1,7 +1,9 @@
+import * as c from './../actions/ActionTypes';
+
 const reducer = (state = {}, action) => {
   const { title, userName, thoughts, postTime, id } = action;
   switch (action.type){
-  case 'ADD_POST':
+  case c.ADD_POST:
     return Object.assign({}, state, {
     [id]: {
       title: title,
@@ -11,7 +13,7 @@ const reducer = (state = {}, action) => {
       id: id
       }
     });
-    case 'DELETE_POST':
+    case c.DELETE_POST:
       let newState = { ...state };
       delete newState[id];
       return newState;
