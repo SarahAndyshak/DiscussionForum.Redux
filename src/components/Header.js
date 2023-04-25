@@ -10,7 +10,7 @@ function Header(){
     backgroundSize: "100%",
     backgroundRepeat: "no-repeat",
     backgroundPosition: "center top 35%",
-    color: "white",
+    color: "black",
     boxShadow: "0 2px 5px rgba(0,0,0,0.3)"
   }
 
@@ -18,7 +18,7 @@ function Header(){
     <React.Fragment>
       <div style={headerStyles}>
         <h1>Discussion Board</h1>
-        <hr />
+        {/* <hr /> */}
       </div>
     </React.Fragment>
   );

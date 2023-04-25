@@ -3,14 +3,16 @@ import NewPostForm from './NewPostForm';
 import PostList from './PostList';
 import PostDetail from './PostDetail';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 class PostControl extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      formVisibleOnPage: false,
-      mainPostList: [],
+      // formVisibleOnPage: false,
+      // mainPostList: [],
       selectedPost: null,
       editing: false
     };
@@ -19,49 +21,65 @@ class PostControl extends React.Component {
   handleClick = () => {
     if (this.state.selectedPost != null) {
       this.setState({
-        formVisibleOnPage: false,
+        // formVisibleOnPage: false,
         selectedPost: null,
         editing: false
       });
     } else {
-      this.setState(prevState => ({
-        formVisibleOnPage: !prevState.formVisibleOnPage,
-      }));
+      // this.setState(prevState => ({
+      //   formVisibleOnPage: !prevState.formVisibleOnPage,
+      // }));
+      const { dispatch } = this.props;
+      const action = {
+        type: 'TOGGLE_FORM'
+      }
+      dispatch(action);
     }
   }
 
   handleDeletingPost = (id) => {
-    const newMainPostList = this.state.mainPostList.filter(post => post.id !== id);
-    this.setState({
-      mainPostList: newMainPostList,
-      selectedPost: null
-    });
+    // const newMainPostList = this.state.mainPostList.filter(post => post.id !== id);
+    // this.setState({
+    //   mainPostList: newMainPostList,
+    //   selectedPost: null
+    // });
+    const { dispatch } = this.props;
+    const action = {
+      type: 'DELETE_POST',
+      id: id
+    }
+    dispatch(action);
+    this.setState({selectedPost: null});
   }
 
   handleAddingNewPostToList = (newPost) => {
-    const newMainPostList = this.state.mainPostList.concat(newPost);
-    this.setState({mainPostList: newMainPostList});
-    this.setState({formVisibleOnPage: false});
+    // const newMainPostList = this.state.mainPostList.concat(newPost);
+    // this.setState({mainPostList: newMainPostList});
+    // this.setState({formVisibleOnPage: false});
+    const { dispatch } = this.props;
+    const { id, title, userName, thoughts, postTime } = newPost;
+    const action = {
+      type: 'ADD_POST',
+      id: id, 
+      title: title, 
+      userName: userName,
+      thoughts: thoughts,
+      postTime: postTime,
+    }
+    dispatch(action);
+    // this.setState({formVisibleOnPage: false});
+    const action2 = {
+      type: 'TOGGLE_FORM'
+    }
+    dispatch(action2);
   }
 
   handleChangingSelectedPost = (id) => {
-    let selectedPost = this.state.mainPostList.filter(post => post.id === id)[0];
+    // let selectedPost = this.state.mainPostList.filter(post => post.id === id)[0];
+    // this.setState({selectedPost: selectedPost});
+    const selectedPost = this.props.mainPostList[id];
     this.setState({selectedPost: selectedPost});
   }
-
-  // handleVendClick = (id) => {
-  //   let selectedInventory = this.state.mainInventoryList.find(inventory => inventory.id === id);
-  //   selectedInventory.quantity -= 1;
-  //   const newMainInventoryList = this.state.mainInventoryList.map((inventory) => { return inventory.id === id ? selectedInventory : inventory});
-  //   this.setState({mainInventoryList: newMainInventoryList});
-  // }
-
-  // handleRestockClick = (id, stock) => {
-  //   let selectedInventory = this.state.mainInventoryList.find(inventory => inventory.id === id);
-  //   selectedInventory.quantity += stock;
-  //   const newMainInventoryList = this.state.mainInventoryList.map((inventory => { return inventory.id === id? selectedInventory : inventory}));
-  //   this.setState({mainInventoryList: newMainInventoryList});
-  // }
 
   render() {
     let currentlyVisibleState = null;
@@ -72,13 +90,13 @@ class PostControl extends React.Component {
       onClickingDelete={this.handleDeletingPost}
       />
       buttonText = "Return to Forum";
-    } else if (this.state.formVisibleOnPage) {
+    } else if (this.props.formVisibleOnPage) {
       currentlyVisibleState = <NewPostForm onNewPostCreation={this.handleAddingNewPostToList}/>;
       buttonText = "Return to Forum"; 
     } else {
       currentlyVisibleState = <PostList 
       // post={this.state.selectedPost} 
-      postList={this.state.mainPostList}
+      postList={this.props.mainPostList}
       // onVendInventory = { this.handleVendClick}
       // onRestockInventory = {this.handleRestockClick}
       onPostSelection={this.handleChangingSelectedPost} />;
@@ -93,5 +111,19 @@ class PostControl extends React.Component {
   }
 
 }
+
+PostControl.propTypes = {
+  mainPostList: PropTypes.object,
+  formVisibleOnPage: PropTypes.bool
+};
+
+const mapStateToProps = state => {
+  return {
+    mainPostList: state.mainPostList,
+    formVisibleOnPage: state.formVisibleOnPage
+  }
+}
+
+PostControl = connect(mapStateToProps)(PostControl);
 
 export default PostControl;
