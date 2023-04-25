@@ -17,7 +17,7 @@ function PostDetail(props) {
 
           <li><strong>User Name:</strong> {post.userName} 💬 <strong>Time:</strong> {post.postTime} </li><br />
 
-          <li><strong>Thoughts:</strong>{post.thoughts}</li><br /><hr />
+          <li><strong>Thoughts:</strong> {post.thoughts}</li><br /><hr />
           </Col>
 
           <Col sm={7}>

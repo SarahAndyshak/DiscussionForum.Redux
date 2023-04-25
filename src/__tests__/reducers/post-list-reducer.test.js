@@ -61,7 +61,7 @@ describe('postListReducer', () => {
     };
     expect(postListReducer(currentState, action)).toEqual({
       2: {
-        title: 'Second Post Ever!',
+      title: 'Second Post Ever!',
       userName: 'codingWizard',
       thoughts: 'Reducer has side effects',
       postTime: '555',
