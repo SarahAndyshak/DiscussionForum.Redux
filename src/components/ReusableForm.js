@@ -21,15 +21,10 @@ export default function ReusableForm(props) {
           required='required'
           placeholder='user name' /><br />
           <Form.Control
-          type='text'
+          type='text-area'
           name='thoughts'
           required='required'
-          placeholder='What\`s up?' /><br />
-          <Form.Control
-          type='string'
-          name='postTime'
-          required='required'
-          placeholder='' /><br />
+          placeholder='Think your thoughts' /><br />
         <button className="btn btn-light" type='submit'>{props.buttonText}</button>
       </form>
       </Col>

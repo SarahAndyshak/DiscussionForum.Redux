@@ -1,17 +1,16 @@
 import React from "react";
 import PropTypes from "prop-types";
-// import { formatDistanceToNow } from 'date-fns';
-
 
 function Post(props){
+
   return (
     <React.Fragment>
-      <div onClick = {() => props.whenPostClicked(props.id)}>
+      <div onClick = {() => props.onPostSelection(props.id)}>
         <h3>{props.title} - {props.userName}</h3>
         <p><em>{props.thoughts}</em></p>
         <p>{props.postTime}</p>
         <hr/>
-      </div>
+        </div>
     </React.Fragment>
   );
 }
@@ -22,7 +21,7 @@ Post.propTypes = {
   thoughts: PropTypes.string.isRequired,
   postTime: PropTypes.string,
   id: PropTypes.string,
-  whenPostClicked: PropTypes.func 
+  onPostSelection: PropTypes.func 
 };
 
 export default Post;

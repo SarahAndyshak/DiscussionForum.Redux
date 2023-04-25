@@ -14,7 +14,7 @@ function PostList(props) {
           postTime={post.postTime}
           // onVendInventory={props.onVendInventory}
           // onRestockInventory={props.onRestockInventory}
-          onPostSelect={props.onPostSelect}
+          onPostSelection={props.onPostSelection}
           id={post.id}
           key={post.id}/>
       )}
@@ -26,7 +26,7 @@ PostList.propTypes = {
   postList: PropTypes.array,
   // onVendInventory: PropTypes.func,
   // onRestockInventory: PropTypes.func,
-  onPostSelect: PropTypes.func
+  onPostSelection: PropTypes.func
 };
 
 export default PostList;
