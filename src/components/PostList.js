@@ -3,16 +3,25 @@ import Post from "./Post";
 import PropTypes from "prop-types";
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Card from 'react-bootstrap/Card'
+
+const listStyles = {
+  display: "flex",
+  textAlign: "center",
+  alignItems: "center",
+  justifyContent: "center",
+}
 
 function PostList(props) {
 
   return (
     <React.Fragment>
-      <div id="CardStyle">
-      <Row>
-      {/* <hr /> */}
-        <Col md={4} className="mb-4">
+      <div style={listStyles}>
+      {/* <Row>
+        <Col md={4}> */}
+        {/* <Card style={{ width: '30vw', backgroundColor: 'rgba(255, 0, 0, 0.3)', padding: '5'}}> */}
         {Object.values(props.postList).map((post) => 
+        <Card style={{ width: '30vw', backgroundColor: 'rgba(255, 0, 0, 0.3)', padding: '5'}}>
           <Post
             title={post.title}
             userName={post.userName}
@@ -25,9 +34,10 @@ function PostList(props) {
             id={post.id}
             key={post.id}
             />
-        )}
-        </Col>
-      </Row>
+            )}
+          </Card>
+          {/* </Col>
+      </Row> */}
       </div>
     </React.Fragment>
   );

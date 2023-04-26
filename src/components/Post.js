@@ -10,14 +10,14 @@ function Post(props){
         <h4><em>{props.thoughts}</em></h4>
         <h4>{props.postTime}</h4>
         <h4>{props.vote}</h4>
-        <hr/>
+    
         </div>
-        <button className="btn btn-light" onClick={() => props.onUpVote(props.id)}>UpVote Post</button>
-      <hr />
-      <button
-        className="btn btn-light"
-        onClick={() => props.onDownVote(props.id)}>DownVote Post</button>
-      <hr />
+        <button className="btn btn-light" style={{ margin: '0 auto', width: '50%' }} onClick={() => props.onUpVote(props.id)}>UpVote Post</button> 
+        <br /><br />
+        <button
+          className="btn btn-light" style={{ margin: '0 auto', width: '50%' }}
+          onClick={() => props.onDownVote(props.id)}>DownVote Post</button>
+        <hr />
     </React.Fragment>
   );
 }
