@@ -101,12 +101,18 @@ class PostControl extends React.Component {
 }
 
 PostControl.propTypes = {
+  //post: PropTypes.object,
   mainPostList: PropTypes.object,
   formVisibleOnPage: PropTypes.bool
 };
 
 const mapStateToProps = state => {
-  return {
+  // const { post } = state;
+  // const postArray = Object.values(state.mainPostList);
+  // const sortedPosts = postArray.sort((a, b) => b.vote - a.vote);
+
+return {
+    // post: sortedPosts, 
     mainPostList: state.mainPostList,
     formVisibleOnPage: state.formVisibleOnPage
   }

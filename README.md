@@ -17,9 +17,9 @@
 * Babel
 * Bootstrap
 
-<!-- ## Mockup
-![splash page](TeaSplash.png)
-![details page](TeaDetails.png) -->
+## Mockup
+![splash page](SplashPage.png)
+![details page](PostDetails.png)
 
 ## Component Diagram
 ![diagram](component-diagram.png)
@@ -27,13 +27,12 @@
 ```
 App.js
 ├── Header.js
-├── TeaControl.js
-│   ├── NewTeaForm.js
+├── PostControl.js
+│   ├── NewPostForm.js
 │   │   ├── ReusableForm.js
-│   ├── TeaList.js   
-│   │   ├── Tea.js
-│   ├── TeaDetail.js   
-│   ├── EditTeaForm.js            
+│   ├── PostList.js   
+│   │   ├── Post.js
+│   ├── PostDetail.js   
 ```
 
 # Getting Started with Create React App

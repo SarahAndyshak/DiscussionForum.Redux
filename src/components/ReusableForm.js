@@ -21,7 +21,7 @@ export default function ReusableForm(props) {
           required='required'
           placeholder='user name' /><br />
           <Form.Control
-          type='text-area'
+          as='textarea'
           name='thoughts'
           required='required'
           placeholder='Think your thoughts' /><br />

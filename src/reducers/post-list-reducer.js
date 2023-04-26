@@ -37,8 +37,3 @@ const reducer = (state = {}, action) => {
 };
 
 export default reducer;
-
-//case c.DOWN_VOTE
-//return {
-//...state,
-//state.posts.

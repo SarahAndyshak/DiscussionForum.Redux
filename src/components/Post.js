@@ -6,10 +6,10 @@ function Post(props){
   return (
     <React.Fragment>
       <div onClick = {() => props.onPostSelection(props.id)}>
-        <h3>{props.title} - {props.userName}</h3>
-        <p><em>{props.thoughts}</em></p>
-        <p>{props.postTime}</p>
-        <p>{props.vote}</p>
+        <h2>{props.title} - {props.userName}</h2>
+        <h4><em>{props.thoughts}</em></h4>
+        <h4>{props.postTime}</h4>
+        <h4>{props.vote}</h4>
         <hr/>
         </div>
         <button className="btn btn-light" onClick={() => props.onUpVote(props.id)}>UpVote Post</button>

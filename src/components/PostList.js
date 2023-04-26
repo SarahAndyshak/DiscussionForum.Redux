@@ -1,25 +1,34 @@
 import React from "react";
 import Post from "./Post";
 import PropTypes from "prop-types";
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 function PostList(props) {
+
   return (
     <React.Fragment>
-      <hr />
-      {Object.values(props.postList).map((post) => (
-        <Post
-          title={post.title}
-          userName={post.userName}
-          thoughts={post.thoughts}
-          postTime={post.postTime}
-          vote={post.vote}
-          onDownVote={props.onDownVote}
-          onUpVote={props.onUpVote}
-          onPostSelection={props.onPostSelection}
-          id={post.id}
-          key={post.id}
-        />
-      ))}
+      <div id="CardStyle">
+      <Row>
+      {/* <hr /> */}
+        <Col md={4} className="mb-4">
+        {Object.values(props.postList).map((post) => 
+          <Post
+            title={post.title}
+            userName={post.userName}
+            thoughts={post.thoughts}
+            postTime={post.postTime}
+            vote={post.vote}
+            onDownVote={props.onDownVote}
+            onUpVote={props.onUpVote}
+            onPostSelection={props.onPostSelection}
+            id={post.id}
+            key={post.id}
+            />
+        )}
+        </Col>
+      </Row>
+      </div>
     </React.Fragment>
   );
 }

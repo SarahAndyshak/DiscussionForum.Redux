@@ -11,9 +11,9 @@ function PostDetail(props) {
     <React.Fragment>
       <Container>
         <Row>
-          <Col sm={5}>
+          <Col>
             <br />
-            <h2>Forum Post Details</h2>
+            <h2><strong>Forum Post Details</strong></h2>
             <br />
             <h3>
               <strong> Title:</strong> {post.title}
@@ -21,31 +21,26 @@ function PostDetail(props) {
             <br />
 
             <li>
-              <strong>User Name:</strong> {post.userName} 💬{" "}
+              <strong>User Name:</strong> {post.userName} 💾 {" "}
               <strong>Time:</strong> {post.postTime}{" "}
-            </li>
+              </li>
             <br />
 
             <li>
               <strong>Thoughts:</strong> {post.thoughts}
-            </li>
+              </li>
             <br />
 
             <li>
               <strong>Votes:</strong> {post.vote}
-            </li>
+              </li>
             <hr />
           </Col>
-
-          <Col sm={7}></Col>
-          <button
-            className="btn btn-light"
-            onClick={() => onClickingDelete(post.id)}
-          >
-            Delete Post
-          </button>
-          <hr />
         </Row>
+        <button
+            className="btn btn-light"
+            onClick={() => onClickingDelete(post.id)}>Delete Post</button>
+        <hr />
       </Container>
     </React.Fragment>
   );

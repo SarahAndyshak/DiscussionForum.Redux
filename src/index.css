@@ -5,9 +5,18 @@ body {
   font-family: 'Poiret One', cursive;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: url("./img/pic.jpg");
+  background-size: cover;
+  font-size: 20px;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* div#CardStyle {
+  padding-left: 5%;
+  margin: 5px;
+  background: rgba(143, 201, 233, 0.3)
+} */
