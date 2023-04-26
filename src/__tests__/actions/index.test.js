@@ -23,6 +23,7 @@ describe('Discussion Forum actions', () => {
       userName: 'codingWizard',
       thoughts: 'Reducer has many frustrating effects',
       postTime: '555',
+      vote: 0,
       id: 1    
     })).toEqual({
       type: c.ADD_POST,
@@ -30,6 +31,14 @@ describe('Discussion Forum actions', () => {
       userName: 'codingWizard',
       thoughts: 'Reducer has many frustrating effects',
       postTime: '555',
+      vote: 0,
+      id: 1    
+    });
+  });
+
+  it('downVote should create DOWN_VOTE action', () => {
+    expect(actions.downVote(1)).toEqual ({
+      type: c.DOWN_VOTE,
       id: 1    
     });
   });

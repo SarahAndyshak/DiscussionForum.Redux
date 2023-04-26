@@ -1,3 +1,4 @@
+// import { id } from "date-fns/locale";
 
 
 export const deletePost = id => ({
@@ -17,6 +18,12 @@ export const addPost = (post) => {
     userName: userName,
     thoughts: thoughts,
     postTime: postTime,
+    vote: 0,
     id: id
   }
-}
+};
+
+export const downVote = id => ({
+  type: 'DOWN_VOTE',
+  id
+});
