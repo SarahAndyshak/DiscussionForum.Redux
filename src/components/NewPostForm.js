@@ -13,6 +13,7 @@ function NewPostForm(props){
       userName: event.target.userName.value, 
       thoughts: event.target.thoughts.value, 
       postTime: date.getHours() + ":" + date.getMinutes()  + " " + (date.getMonth() + 1) + '/' + date.getDate() + '/' + date.getFullYear(),
+      vote: 0,
       id: v4()});
   }
 

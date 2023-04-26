@@ -12,8 +12,9 @@ function PostList(props) {
           userName={post.userName}
           thoughts={post.thoughts}
           postTime={post.postTime}
-          // onVendInventory={props.onVendInventory}
-          // onRestockInventory={props.onRestockInventory}
+          vote={post.vote}
+          onDownVote={props.onDownVote}
+          onUpVote={props.onUpVote}
           onPostSelection={props.onPostSelection}
           id={post.id}
           key={post.id}/>
@@ -24,8 +25,8 @@ function PostList(props) {
 
 PostList.propTypes = {
   postList: PropTypes.object,
-  // onVendInventory: PropTypes.func,
-  // onRestockInventory: PropTypes.func,
+  onDownVote: PropTypes.func,
+  onUpVote: PropTypes.func,
   onPostSelection: PropTypes.func
 };
 

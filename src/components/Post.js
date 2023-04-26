@@ -9,6 +9,7 @@ function Post(props){
         <h3>{props.title} - {props.userName}</h3>
         <p><em>{props.thoughts}</em></p>
         <p>{props.postTime}</p>
+        <p>{props.vote}</p>
         <hr/>
         </div>
     </React.Fragment>
@@ -20,6 +21,7 @@ Post.propTypes = {
   userName: PropTypes.string.isRequired,
   thoughts: PropTypes.string.isRequired,
   postTime: PropTypes.string,
+  vote: PropTypes.number.isRequired,
   id: PropTypes.string,
   onPostSelection: PropTypes.func 
 };
