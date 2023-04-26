@@ -23,6 +23,24 @@ describe('postListReducer', () => {
     }
   }
 
+  const currentState1 = {
+    1: {
+      title: 'First Forum Post!',
+      userName: 'epicodusStar',
+      thoughts: 'Redux action is not working correctly.',
+      postTime: '420',
+      vote: 1,
+      id: 1
+    }, 2: {
+      title: 'Second Post Ever!',
+      userName: 'codingWizard',
+      thoughts: 'Reducer has side effects',
+      postTime: '555',
+      vote: 1,
+      id: 2
+    }
+  }
+
   const postData = {
     title: 'How do I learn how to code?',
     userName: 'n00bie',
@@ -91,6 +109,32 @@ describe('postListReducer', () => {
         thoughts: 'Redux action is not working correctly.',
         postTime: '420',
         vote: 0,
+        id: 1
+      }, 2: {
+        title: 'Second Post Ever!',
+        userName: 'codingWizard',
+        thoughts: 'Reducer has side effects',
+        postTime: '555',
+        vote: 1,
+        id: 2
+      }
+    });
+  });
+
+  test('Should successfully increment a vote by 1 on a post', () => {
+    action = {
+      type: c.UP_VOTE,
+      vote: 1,
+      id: 1    
+    };
+      
+    expect(postListReducer(currentState1, action)).toEqual({
+      1: {
+        title: 'First Forum Post!',
+        userName: 'epicodusStar',
+        thoughts: 'Redux action is not working correctly.',
+        postTime: '420',
+        vote: 2,
         id: 1
       }, 2: {
         title: 'Second Post Ever!',

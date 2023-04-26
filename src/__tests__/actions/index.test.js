@@ -43,4 +43,11 @@ describe('Discussion Forum actions', () => {
     });
   });
 
+  it('upVote should create UP_VOTE action', () => {
+    expect(actions.upVote(1)).toEqual ({
+      type: c.UP_VOTE,
+      id: 1    
+    });
+  });
+
 });
