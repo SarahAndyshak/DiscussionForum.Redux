@@ -25,11 +25,11 @@ const reducer = (state = {}, action) => {
       console.log(newState1);
       return newState1;
 
-      case c.UP_VOTE:
-        let newState2 = { ...state };
-        newState2[id].vote += 1;
-        console.log(newState2);
-        return newState2;
+    case c.UP_VOTE:
+      let newState2 = { ...state };
+      newState2[id].vote += 1;
+      console.log(newState2);
+      return newState2;
     
       default:
       return state;

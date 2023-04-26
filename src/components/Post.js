@@ -12,6 +12,12 @@ function Post(props){
         <p>{props.vote}</p>
         <hr/>
         </div>
+        <button className="btn btn-light" onClick={() => props.onUpVote(props.id)}>UpVote Post</button>
+      <hr />
+      <button
+        className="btn btn-light"
+        onClick={() => props.onDownVote(props.id)}>DownVote Post</button>
+      <hr />
     </React.Fragment>
   );
 }
