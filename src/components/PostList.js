@@ -20,8 +20,8 @@ function PostList(props) {
       {/* <Row>
         <Col md={4}> */}
         {/* <Card style={{ width: '30vw', backgroundColor: 'rgba(255, 0, 0, 0.3)', padding: '5'}}> */}
-        {Object.values(props.postList).map((post) => 
         <Card style={{ width: '30vw', backgroundColor: 'rgba(255, 0, 0, 0.3)', padding: '5'}}>
+        {Object.values(props.postList).map((post) => 
           <Post
             title={post.title}
             userName={post.userName}
@@ -35,7 +35,7 @@ function PostList(props) {
             key={post.id}
             />
             )}
-          </Card>
+            </Card>
           {/* </Col>
       </Row> */}
       </div>
